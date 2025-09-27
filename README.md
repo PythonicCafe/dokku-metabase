@@ -16,6 +16,10 @@ JAVA_OPTS="-Xmx16g -Xss512k -XX:CICompilerCount=2 -Dfile.encoding=UTF-8"
 dokku apps:create $APP_NAME
 dokku domains:add $APP_NAME $APP_DOMAIN
 dokku config:set --no-restart $APP_NAME "JAVA_OPTS=$JAVA_OPTS"
+dokku config:set --no-restart $APP_NAME "MB_UNAGGREGATED_QUERY_ROW_LIMIT=100000"
+dokku config:set --no-restart $APP_NAME "MB_AGGREGATED_QUERY_ROW_LIMIT=200000"
+dokku config:set --no-restart $APP_NAME "MB_PLUGINS_DIR=/data/plugins"
+
 dokku letsencrypt:set $APP_NAME email $ADMIN_EMAIL
 dokku checks:disable metabase
 
