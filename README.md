@@ -23,6 +23,7 @@ dokku config:set --no-restart $APP_NAME "MB_AGGREGATED_QUERY_ROW_LIMIT=200000"
 dokku config:set --no-restart $APP_NAME "MB_PLUGINS_DIR=/data/plugins"
 dokku letsencrypt:set $APP_NAME email $ADMIN_EMAIL
 dokku checks:disable metabase
+dokku nginx:set $APP_NAME client-max-body-size 50m
 
 # Database
 dokku postgres:create $PG_NAME
