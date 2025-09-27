@@ -42,3 +42,13 @@ dokku letsencrypt:enable metabase
 
 Configure plugins directory to avoid "WARN metabase.plugins :: Metabase cannot
 use the plugins directory /app/plugins".
+
+## Backup
+
+To backup the main postgres database, execute:
+
+```shell
+APP_NAME="metabase"
+PG_NAME="pg_${APP_NAME}"
+dokku postgres:export $PG_NAME | gzip - > postgres-${APP_NAME}-$(date --iso=seconds).sql.gz
+```
