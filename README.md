@@ -50,6 +50,12 @@ Finally, on the server:
 dokku letsencrypt:enable metabase
 ```
 
+## Utilities
+
+The script `create-metabase-user.sh` create a read-only `metabase` user on a Dokku postgres service, so you can then
+expose the service and add it to Metabase without exposing a connection string with read-write access.
+
+
 ## To do
 
 Configure plugins directory to avoid "WARN metabase.plugins :: Metabase cannot
