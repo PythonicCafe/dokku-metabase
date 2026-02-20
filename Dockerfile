@@ -1,4 +1,4 @@
-FROM metabase/metabase:v0.57.13
+FROM metabase/metabase:v0.58.x
 
 WORKDIR /app/
 ADD metabase.sh /app/
